@@ -36,22 +36,23 @@ def attack(att_ent, def_ent):
     def_ent['health'] -= reduct(att_ent['damage'],def_ent['armor'])
     #def_ent['health'] -= (lambda dmg, armor: dmg / armor)(att_ent['damage'],def_ent['armor']) Через lambda
     
-
-
-def battle(player, enemy):           # передаются именно name сущностей, иначе не получится обратиться к файлу
-    entities = {} # словарь сущностей, кривее некуда, но можно работать, зная лишь name сущностей, а не название их словарей
-    for entity in player, enemy:     # И при необходимости функция получает любое количество сущностей и обрабатывает их
-        entity_dict = []             # player и enemy можно заменить на entity1 и entity2 и биться смогут любые сущности, причем entity1 ударит первой
+def get_entities(*args):
+    entities = {} 
+    for entity in args:
+        entity_dict = []           
         with open('{}.txt'.format(entity)) as file:
             for line in file:
-                line = line[:-1]     #убрал \n
+                line = line[:-1]     
                 line = line.split('-') 
                 if line[0] != 'name': 
                     line[1] = float(line[1])
                 entity_dict.append(line)
-        entities[entity] = dict(entity_dict)
-                
-    while entities[player]['health'] > 0 and entities[enemy]['health'] > 0: #игровая сессия
+        entities[entity] = dict(entity_dict)    
+    return entities
+
+def battle(player, enemy):
+    entities = get_entities(player, enemy)              
+    while entities[player]['health'] > 0:
         attack(entities[player], entities[enemy])
         if entities[enemy]['health'] <= 0:
             return player, entities[player]['health']
