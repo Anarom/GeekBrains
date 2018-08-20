@@ -44,7 +44,11 @@ def process_user_choice(choice, person):
     elif choice == 2:
         try:
             count = float(input('Сумма к снятию: '))
-            print(withdraw_money(person, count))
+            if count > 0:
+                print(withdraw_money(person, count))
+            else:
+                print('---------------------\n')
+                print('Некорректный ввод')
         except ValueError:
             print('---------------------\n')
             print('Некорректный ввод')
