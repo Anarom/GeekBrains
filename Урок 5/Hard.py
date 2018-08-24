@@ -72,7 +72,6 @@ def set_cwd():
         os.chdir(dir_path)
     if dir_path == os.getcwd():
         print('Успешный переход')
-        os.system('cd {}'.format(dir_path)) ######
     else:
         print('Некорректный путь')
         

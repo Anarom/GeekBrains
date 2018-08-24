@@ -11,7 +11,7 @@ def set_dirX9():
         try:
             os.mkdir(dir_path)
         except FileExistsError:
-            pass
+            print('Файл уже существует')
 
 def del_dirX9():
     path = os.getcwd()
@@ -20,7 +20,7 @@ def del_dirX9():
         try:
             os.rmdir(dir_path)
         except FileNotFoundError:
-            pass
+            print('Файл на найден')
 
 
 # Задача-2:
