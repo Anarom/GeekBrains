@@ -30,9 +30,11 @@ class Player(Person):
     def __init__(self):
         super().__init__('player', 100, 13, 1.8)
 
+
 class Enemy(Person):
     def __init__(self):
         super().__init__('enemy', 150, 15, 1.1)
+
 
 class Battle():
     def __init__(self, first, second):
@@ -46,6 +48,8 @@ class Battle():
         else:
             winner = second
         print(f'{winner.name} wins with {math.ceil(winner.health)} health')
+
+        
 player = Player()
 enemy = Enemy()
 do = Battle(player, enemy)

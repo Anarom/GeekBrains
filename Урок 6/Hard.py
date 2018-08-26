@@ -9,14 +9,13 @@
 # В итоге ваш класс по производству игрушек должен вернуть объект нового класса Игрушка.
 
 class Toy:
-    
     def __init__(self, name, color, toy_type):
         self.name = name
         self.color = color
         self.toy_type = toy_type
 
+        
 class Factory:
-    
     def get_materials(self):
         print('Получили материалы')
                         
@@ -40,7 +39,6 @@ do = Factory('слон', 'серый', 'животное')
 # исходя из типа игрушки отдавать конкретный объект класса, который наследуется от базового - Игрушка
 print()
 class Toy:
-    
     def __init__(self, name, color, toy_type):
         self.name = name
         self.color = color
@@ -58,7 +56,6 @@ class Character(Toy):
 
         
 class Factory:
-    
     def get_materials(self):
         print('Получили материалы')
                         
@@ -77,7 +74,6 @@ class Factory:
         else:
             toy = Character(name, color)
         print(f'producted {toy}')
-
 do = Factory('медведь', 'белый', 'животное')
 print()
 do = Factory('Чебурашка', 'коричневый', 'персонаж')

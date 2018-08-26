@@ -5,8 +5,7 @@
 # А так же несколько методов: go, stop, turn(direction) - которые должны сообщать,
 #  о том что машина поехала, остановилась, повернула(куда)
 
-class TownCar:
-    
+class TownCar: 
     speed = 80
     color = 'black'
     name = 'town car'
@@ -23,7 +22,6 @@ class TownCar:
  
 
 class SportCar:
-    
     speed = 150
     color = 'red'
     name = 'sport car'
@@ -40,7 +38,6 @@ class SportCar:
 
 
 class WorkCar:
- 
     speed = 50
     color = 'yellow'
     name = 'work car'
@@ -57,7 +54,6 @@ class WorkCar:
 
 
 class TownCar:
-    
     speed = 120
     color = 'blue'
     name = 'police car'
@@ -92,7 +88,6 @@ class Car:
 
     def turn(self, direction):
         print(f'{self.name} turns to the {direction}')
-
 
 
 class TownCar(Car):
