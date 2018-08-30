@@ -120,9 +120,6 @@ class Game:
             if barrel in self.barrels:
                 new_barrel = True
                 self.barrels.remove(barrel)
-            elif len(self.barrels) == 0:
-                self.winner = 'Draw'
-                return 0
         return barrel
 
 
@@ -162,9 +159,9 @@ class Game:
                     print('\n Draw')
                     return
                 else:
-                    self.winner = player
+                    self.winner = self.player
             elif len(self.computer.numbers) == 0:
-                self.winner = computer
+                self.winner = self.computer
             else:
                 self.turn()
         print('\nwinner is', self.winner.name)
